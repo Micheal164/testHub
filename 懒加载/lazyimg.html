@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+			}
+		
+			img{
+				height: 200px;
+				display: block;
+			}
+
+		</style>
+	</head>
+	<body>
+		
+		<div class="box"></div>
+		<img src="gl.jpg" class="test">
+		
+		<script type="text/javascript">
+			let box = document.querySelector('.box');
+			let myImgs = [
+				"gl.jpg",
+				"hexagon.jpg",
+				"kobe--1.jpeg",
+				"kobe--2.jpg",
+				"kobe--3.jpg",
+				"michael.jpg",
+				"snail.jpg",
+				"荷花.jpg",
+				"animal/8.jpg",
+				"animal/9.jpg",
+				"animal/10.jpg",
+				"animal/11.jpg",
+				"animal/12.jpg",
+				"animal/13.jpg",
+				"animal/14.jpg",
+				"animal/15.jpg",
+				"animal/16.jpg",
+				"animal/banner1.jpg",
+			];
+			
+			// image Nodelist
+			let imgs = null;
+			// 节流
+			let tf_lazy = false;
+			new Promise((res,rej)=> {
+				let allhtml = "";
+				myImgs.forEach((item, i)=> {
+						allhtml += `<img alt="" data-src="${item}" />`;
+				})
+				res(allhtml);
+			}).then((s_els)=> {
+				box.innerHTML += s_els;
+
+				imgs = document.querySelectorAll('.box img');
+				lazyimg();
+			}) 
+				
+			
+			let timer = null;
+			window.onscroll = function(){
+				if(tf_lazy){
+					tf_lazy = false;
+
+					clearTimeout(timer);
+
+					lazyimg();
+				}
+			}
+			
+			function lazyimg() {
+
+					timer = setTimeout(()=> {
+						tf_lazy = true;
+					}, 500)
+
+					imgs.forEach((item, i)=> {
+						if(isQualified(i)){
+							item.setAttribute('src', item.getAttribute('data-src'))
+						}
+					})
+				
+			}
+
+			function isQualified(i){
+				
+				if(document.documentElement.scrollTop+600 > i*200){
+					return true;
+				}else{
+					return false;
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

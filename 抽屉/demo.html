@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.box
+		{
+			width: 60vw;
+			margin: 0 auto;
+			display: flex;
+			align-items: center;
+			border: 2px solid steelblue;
+			overflow: hidden;
+		}
+		.box>div
+		{
+			position: relative;
+			height: 40vh;
+			flex-grow: 1;
+			flex-basis: 20%; 
+
+			transition: all 600ms;
+		}
+
+		/*-----------------------------*/
+		.box>div:hover
+		{
+			flex-basis: 100%;
+		}
+		/*-----------------------------*/
+
+		.box>div:nth-of-type(1)
+		{
+			background: url(https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1326378687,2904033429&fm=26&gp=0.jpg) no-repeat left center/cover;
+		}
+		.box>div:nth-of-type(2)
+		{
+			background: url(https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2213030504,1787028102&fm=26&gp=0.jpg) no-repeat left center/cover;
+		}
+		.box>div:nth-of-type(3)
+		{
+			background: url(https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1943098141,3908812437&fm=26&gp=0.jpg) no-repeat left center/cover;
+		}
+		.box>div:nth-of-type(4)
+		{
+			background: url(https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2048147090,254273485&fm=26&gp=0.jpg) no-repeat left center/cover;
+		}
+		.box>div:nth-of-type(5)
+		{
+			background: url(https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2755564136,3333037144&fm=26&gp=0.jpg) no-repeat left center/cover;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+</body>
+</html>

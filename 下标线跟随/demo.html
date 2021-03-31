@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>下标线跟随</title>
+    <style>
+      ul
+      {
+        display: flex;
+        height: 60px;
+        background: rgba(0, 0, 0, 0.1);
+        padding: 0;
+      }
+      li
+      {
+        position: relative;
+        width: 200px;
+        list-style: none;
+        color: gray;
+        text-align: center;
+        line-height: 60px;
+        cursor: pointer;
+      }
+
+      li::after
+      {
+        transition: all 300ms;
+        position: absolute;
+        content: "";
+        top: 0;
+
+        /* ----变化两属性-------- */
+        left: 100%;
+        width: 0;
+        /* ------------ */
+
+        height: calc(100% - 2px);
+        border-bottom: 2px solid gray;
+      }
+      li:hover::after
+      {
+        left: 0;
+        width: 100%;
+      }
+
+      /* ！好家伙，算是视觉欺骗吧  */
+      li:hover ~li::after
+      {
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>home</li>
+      <li>lesson</li>
+      <li>history</li>
+      <li>me</li>
+    </ul>
+  </body>
+</html>

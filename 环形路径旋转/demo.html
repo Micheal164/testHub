@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+			body
+			{
+				margin: 0;
+			}
+			
+			
+			.container
+			{
+				margin: 100px auto;
+				height: 300px;
+				width: 300px;
+				position: relative;
+				
+				border: 1px solid black;
+				border-radius: 50%;
+				
+				animation: 20s linear 0s infinite circle;
+				
+				--angle: 120deg;
+			}
+			.container > .item
+			{
+				position: absolute;
+				left: 50%;
+				top: 0;
+				height: 50%;
+				
+				transform-origin: center bottom; 
+			}
+			div.item:nth-child(1) 
+			{
+				--order: 0;
+				transform: translateX(-50%) rotateZ(calc(var(--angle) * var(--order)));
+			}
+			div.item:nth-child(2)
+			{
+				--order: 1;
+				transform: translateX(-50%) rotateZ(calc(var(--angle) * var(--order)));
+			}
+			div.item:nth-child(3)
+			{
+				--order: 2;
+				transform: translateX(-50%) rotateZ(calc(var(--angle) * var(--order)));
+			}
+			
+			.container > .item > img
+			{
+				width: 50px;
+				
+				transform: rotateZ(calc(-1 * var(--angle) * var(--order)));
+				animation: 20s linear 0s infinite forimg;
+			}
+			
+			@keyframes circle{
+				from{
+					transform: rotateZ(0deg);
+				}
+				to{
+					transform: rotateZ(1turn);
+				}
+			}
+			@keyframes forimg{
+				from{
+					transform: rotateZ(calc(-1 * var(--angle) * var(--order)));
+				}
+				to{
+					transform: rotateZ(calc(-360deg - var(--angle) * var(--order)));
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="item">
+				<img src="glass.jpg" alt="glass">
+			</div>
+			<div class="item">
+				<img src="glass.jpg" alt="glass">
+			</div>
+			<div class="item">
+				<img src="glass.jpg" alt="glass">
+			</div>
+		</div>
+		
+		<footer>
+		<b>此方法不支持ie：ie不支持 css变量</b>
+		</footer>
+	</body>
+</html>
